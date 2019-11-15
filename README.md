@@ -9,7 +9,6 @@ composer install
 </code>
 
 Uruchomienie:
-
 <b>Import:</b><br>
 <code>
 cd public/
