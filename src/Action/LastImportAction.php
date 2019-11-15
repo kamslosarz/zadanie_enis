@@ -4,7 +4,7 @@ namespace App\Action;
 
 use App\Model\LastImportModel;
 
-class LastImportAction
+class LastImportAction extends Action
 {
     public function execute()
     {
@@ -12,17 +12,16 @@ class LastImportAction
         $lastImport = $lastImportModel->getLast();
         if(!$lastImport)
         {
-            fwrite(STDERR, 'Not imported yet' . PHP_EOL);
+            $this->render('lastImportEmpty.phtml',[]);
         }
         else
         {
-            fwrite(STDERR, sprintf('[%s] %s of %s - %s%% invalid: %s ' . PHP_EOL,
-                $lastImport['date'],
-                $lastImport['done'],
-                $lastImport['total'],
-                floor(($lastImport['done'] / $lastImport['total']) * 100),
-                $lastImport['total'] - $lastImport['done']
-            ));
+            $this->render('lastImport.phtml', [
+                'date' => $lastImport['date'],
+                'done' => $lastImport['done'],
+                'total' => $lastImport['total'],
+                'percent' => floor(($lastImport['done'] / $lastImport['total']) * 100),
+            ]);
         }
     }
 }
