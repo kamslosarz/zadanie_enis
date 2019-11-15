@@ -1,0 +1,31 @@
+<?php /** @var array $items */ ?>
+<form>
+    Kod produktu: <input name="code" value="">
+    <input type="submit" value="Szukaj"/>
+    <input onClick="window.location.href='/list.php'" type="button" value="Reset"/>
+</form>
+<a href="/list.php?page=<?=$prevPage?>"> wstecz </a>
+<a href="/list.php?page=<?=$nestPage?>"> dalej </a>
+<table>
+    <thead>
+    <th>lp.</th>
+    <th>Kod</th>
+    <th>Ilość</th>
+    <th>Cena</th>
+    <th>Data</th>
+    </thead>
+    <?php foreach($items as $item): ?>
+        <tr>
+            <td><?=$item['id']?></td>
+            <td><?=$item['mpn']?></td>
+            <td><?=$item['qty']?></td>
+            <td><?=$item['price']?></td>
+            <td><?=$item['description']?></td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+<style>
+    table td {
+        padding: 5px;
+    }
+</style>
