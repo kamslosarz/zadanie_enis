@@ -1,8 +1,8 @@
 # zadanie_enis
 
 Wymagania:
-php7.2
-php7.2-sqlite3
+- php7.2
+- php7.2-sqlite3
 
 <code>
 composer install
