@@ -8,7 +8,9 @@ php7.2-sqlite3
 composer install
 </code>
 
+<br>
 Uruchomienie:
+<br>
 <b>Import:</b><br>
 <code>
 cd public/
